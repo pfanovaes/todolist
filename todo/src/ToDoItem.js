@@ -1,6 +1,14 @@
 import React, { Component } from 'react';
 
 class ToDoItem extends Component {
+    constructor(props) {
+        super(props);
+
+        this.createTask = this.createTask.bind(this);
+    }
+    delete(key) {
+        this.props.delete(key);
+    }
 
     createTask(item) {
         return <li onClick={() => this.delete(item.key)} key={item.key}>{item.text}</li>
